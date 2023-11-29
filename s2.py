@@ -40,7 +40,7 @@ def index_edit(id):
 
 @app.route('/index/delete')
 def index_delete():
-    pass
+    return '删除成功'
 
 if __name__ == '__main__':
     app.run()
