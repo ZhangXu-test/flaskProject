@@ -3,8 +3,10 @@
 # author: ZhangXu
 
 import time
+import functools
 
 
+"""
 def time_decorator(function):
     def wrapper():
         start_time = time.time()
@@ -23,3 +25,31 @@ def my_function():
 
 if __name__ == '__main__':
     my_function()
+"""
+
+
+def auth1(func):
+    print("1")
+
+    @functools.wraps(func)
+    def inner(*args, **kwargs):
+        return func(*args, **kwargs)
+    return inner
+
+
+def auth2(func):
+    print("2")
+
+    @functools.wraps(func)
+    def inner(*args, **kwargs):
+        return func(*args, **kwargs)
+    return inner
+
+
+@auth1
+@auth2
+def index():
+    pass
+
+
+
